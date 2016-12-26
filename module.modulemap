@@ -1,0 +1,6 @@
+module COpenMPI [system] {
+  header "/usr/local/include/mpi.h"
+  header "shim.h"
+  link "mpi"
+  export *
+}
