@@ -1,4 +1,4 @@
-module COpenMPI [system] {
+module CMPI [system] {
   header "/usr/local/include/mpi.h"
   header "shim.h"
   link "mpi"
