@@ -15,6 +15,9 @@
  * along with COpenMPI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef COPENMPI_SHIM_H
+#define COPENMPI_SHIM_H
+
 #include <mpi.h>
 
 #define SWIFT_NAME(_name) __attribute__((swift_name(_name)))
@@ -105,3 +108,5 @@ OMPI_VAR(MPI_Datatype, MPI_CXX_LONG_DOUBLE_COMPLEX);
 OMPI_VAR(MPI_Datatype, MPI_COUNT);
 OMPI_VAR(MPI_Errhandler, MPI_ERRORS_ARE_FATAL);
 OMPI_VAR(MPI_Errhandler, MPI_ERRORS_RETURN);
+
+#endif /* COPENMPI_SHIM_H */
