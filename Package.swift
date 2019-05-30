@@ -1,3 +1,5 @@
+// swift-tools-version:5.0
+
 /*
  * This file is part of COpenMPI.
  *
@@ -18,9 +20,30 @@
 import PackageDescription
 
 let package = Package(
-    name: "COpenMPI",
-    pkgConfig: "ompi-c",
-    providers: [
-    	.Brew("open-mpi")
-    ]
+  name: "COpenMPI",
+  products: [
+    .library(
+      name: "COpenMPI",
+      targets: ["CMPI"]
+    ),
+    .executable(
+      name: "COpenMPI-Example",
+      targets: ["COpenMPI-Example"]
+    )
+  ],
+  targets: [
+    .systemLibrary(
+      name: "CMPI",
+      pkgConfig: "ompi-c",
+      providers: [
+        .brew(["open-mpi"])
+      ]
+    ),
+    .target(
+      name: "COpenMPI-Example",
+      dependencies: [
+        "CMPI"
+      ]
+    )
+  ]
 )
